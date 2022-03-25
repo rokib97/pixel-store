@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import Item from "../Item/Item";
 import Product from "../Product/Product";
 import "./Products.css";
@@ -18,8 +17,16 @@ const Products = () => {
     const newCart = [...cart, product];
     setCart(newCart);
   };
+  const handleReset = () => {
+    setCart([]);
+  };
+  const handleChoseOne = () => {
+    const random = cart.length.Math.random();
+    setCart(random);
+  };
   return (
     <div className="container my-5">
+      <h1 className="text-center fw-bolder py-3">New on Pixel Store.</h1>
       <div className="row">
         <div className="col-lg-9">
           <div className="row g-4">
@@ -33,12 +40,23 @@ const Products = () => {
           </div>
         </div>
         <div className="col-lg-3 sidebar">
+          <h2 className="text-center fw-bold">Selected Phones</h2>
           {cart.map((item) => (
             <Item item={item} key={item.id} />
           ))}
-          <Button className="my-2 w-100">CHOOSE 1 FOR ME</Button>
+          <button
+            onClick={handleChoseOne}
+            className="my-2 btn w-100 btn-outline-primary text-dark fw-bolder"
+          >
+            CHOOSE 1 FOR ME
+          </button>
           <br />
-          <Button className="w-100">RESET</Button>
+          <button
+            onClick={handleReset}
+            className=" btn w-100  btn-outline-primary text-dark fw-bolder"
+          >
+            RESET
+          </button>
         </div>
       </div>
     </div>
