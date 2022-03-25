@@ -14,15 +14,24 @@ const Products = () => {
   }, []);
 
   const handleAddToCart = (product) => {
-    const newCart = [...cart, product];
-    setCart(newCart);
+    const newProduct = cart.find((pd) => pd.id === product.id);
+    if (!newProduct) {
+      if (cart.length < 4) {
+        const newCart = [...cart, product];
+        setCart(newCart);
+      } else {
+        alert("You can not add more than four");
+      }
+    } else {
+      alert("already added");
+    }
   };
   const handleReset = () => {
     setCart([]);
   };
   const handleChoseOne = () => {
-    const random = cart.length.Math.random();
-    setCart(random);
+    const random = cart[Math.floor(Math.random() * cart.length)];
+    setCart([random]);
   };
   return (
     <div className="container my-5">
