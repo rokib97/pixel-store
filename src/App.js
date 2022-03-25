@@ -1,9 +1,11 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import Products from "./components/Products/Products";
 
 function App() {
   return (
     <div className="App">
-      <h1>Helllo..</h1>
+      <Products />
     </div>
   );
 }
