@@ -37,7 +37,7 @@ const Products = () => {
     <div className="container my-5">
       <h1 className="text-center fw-bolder py-3">New on Pixel Store.</h1>
       <div className="row">
-        <div className="col-lg-9">
+        <div className="col-lg-9 mb-5">
           <div className="row g-4">
             {phones.map((phone) => (
               <Product
@@ -48,7 +48,7 @@ const Products = () => {
             ))}
           </div>
         </div>
-        <div className="col-lg-3 sidebar">
+        <div className="col-lg-3 col-md-6 col-12 mx-auto sidebar">
           <h2 className="text-center fw-bold">Selected Phones</h2>
           {cart.map((item) => (
             <Item item={item} key={item.id} />
