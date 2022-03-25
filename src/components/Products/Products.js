@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import Item from "../Item/Item";
 import Product from "../Product/Product";
+import "./Products.css";
 
 const Products = () => {
   const [phones, setPhones] = useState([]);
@@ -30,10 +32,13 @@ const Products = () => {
             ))}
           </div>
         </div>
-        <div className="col-lg-3">
+        <div className="col-lg-3 sidebar">
           {cart.map((item) => (
             <Item item={item} key={item.id} />
           ))}
+          <Button className="my-2 w-100">CHOOSE 1 FOR ME</Button>
+          <br />
+          <Button className="w-100">RESET</Button>
         </div>
       </div>
     </div>
