@@ -4,7 +4,6 @@ import React from "react";
 import "./Item.css";
 
 const Item = ({ item }) => {
-  console.log(item);
   const { img, name } = item;
   return (
     <div className="single-item p-2 mb-3">
