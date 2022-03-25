@@ -34,7 +34,7 @@ const Products = () => {
     setCart([random]);
   };
   return (
-    <div className="container my-5">
+    <div className="container">
       <h1 className="text-center fw-bolder py-3">New on Pixel Store.</h1>
       <div className="row">
         <div className="col-lg-9 mb-5">
@@ -49,7 +49,7 @@ const Products = () => {
           </div>
         </div>
         <div className="col-lg-3 col-md-6 col-12 mx-auto sidebar">
-          <h2 className="text-center fw-bold">Selected Phones</h2>
+          <h2 className="text-center mt-2">Selected Phones</h2>
           {cart.map((item) => (
             <Item item={item} key={item.id} />
           ))}
