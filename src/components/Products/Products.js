@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 import Item from "../Item/Item";
 import Product from "../Product/Product";
 import "./Products.css";
@@ -23,10 +24,20 @@ const Products = () => {
         const newCart = [...cart, product];
         setCart(newCart);
       } else {
-        alert("You can not add more than four");
+        // alert("You can not add more than four");
+        Swal.fire({
+          icon: "error",
+          title: "Sorry...",
+          text: "You can not add more than four products",
+        });
       }
     } else {
-      alert("already added");
+      // alert("already added");
+      Swal.fire({
+        icon: "warning",
+        title: "Oops...",
+        text: "Already added!",
+      });
     }
   };
   const handleReset = () => {
@@ -62,14 +73,14 @@ const Products = () => {
             ))}
           <button
             onClick={handleChoseOne}
-            className="my-2 btn w-100 btn-outline-primary text-dark fw-bolder"
+            className="my-2 btn w-100 rounded-pill btn-outline-primary text-dark fw-bolder"
           >
             CHOOSE 1 FOR ME
           </button>
           <br />
           <button
             onClick={handleReset}
-            className=" btn w-100  btn-outline-primary text-dark fw-bolder"
+            className=" btn w-100 rounded-pill btn-outline-primary text-dark fw-bolder"
           >
             RESET
           </button>
