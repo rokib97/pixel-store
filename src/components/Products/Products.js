@@ -1,5 +1,3 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
 import React, { useEffect, useState } from "react";
 import Item from "../Item/Item";
 import Product from "../Product/Product";
@@ -35,9 +33,6 @@ const Products = () => {
     const random = cart[Math.floor(Math.random() * cart.length)];
     setCart([random]);
   };
-  useEffect(() => {
-    AOS.init();
-  }, []);
   return (
     <div className="container">
       <h1 className="text-center fw-bolder py-3">New on Pixel Store.</h1>
