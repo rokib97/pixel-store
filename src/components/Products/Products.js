@@ -44,13 +44,14 @@ const Products = () => {
       <div className="row">
         <div className="col-lg-9 mb-5">
           <div className="row g-4">
-            {phones.map((phone) => (
-              <Product
-                product={phone}
-                key={phone.id}
-                handleAddToCart={handleAddToCart}
-              />
-            ))}
+            {phones &&
+              phones.map((phone) => (
+                <Product
+                  product={phone}
+                  key={phone.id}
+                  handleAddToCart={handleAddToCart}
+                />
+              ))}
           </div>
         </div>
         <div className="col-lg-3 col-md-6 col-12 mx-auto sidebar">
