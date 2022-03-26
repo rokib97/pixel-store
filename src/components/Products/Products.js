@@ -6,13 +6,16 @@ import "./Products.css";
 const Products = () => {
   const [phones, setPhones] = useState([]);
   const [cart, setCart] = useState([]);
-  console.log(cart);
   useEffect(() => {
     fetch("phones.json")
       .then((res) => res.json())
       .then((data) => setPhones(data));
   }, []);
 
+  const handleDelete = (item) => {
+    const addedCart = cart.filter((pd) => pd.id !== item.id);
+    setCart(addedCart);
+  };
   const handleAddToCart = (product) => {
     const newProduct = cart.find((pd) => pd.id === product.id);
     if (!newProduct) {
@@ -30,8 +33,10 @@ const Products = () => {
     setCart([]);
   };
   const handleChoseOne = () => {
-    const random = cart[Math.floor(Math.random() * cart.length)];
-    setCart([random]);
+    if (cart.length > 0) {
+      const random = cart[Math.floor(Math.random() * cart.length)];
+      setCart([random]);
+    }
   };
   return (
     <div className="container">
@@ -50,9 +55,10 @@ const Products = () => {
         </div>
         <div className="col-lg-3 col-md-6 col-12 mx-auto sidebar">
           <h2 className="text-center mt-2">Selected Phones</h2>
-          {cart.map((item) => (
-            <Item item={item} key={item.id} />
-          ))}
+          {cart &&
+            cart.map((item) => (
+              <Item handleDelete={handleDelete} item={item} key={item.id} />
+            ))}
           <button
             onClick={handleChoseOne}
             className="my-2 btn w-100 btn-outline-primary text-dark fw-bolder"
