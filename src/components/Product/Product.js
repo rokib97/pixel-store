@@ -10,7 +10,7 @@ const Product = ({ product, handleAddToCart }) => {
     <div className="col-lg-4 col-md-6 col-12">
       <div className="single-card ">
         <Card className="card">
-          <Card.Img className="p-4 w-100 h-75" variant="top" src={img} />
+          <Card.Img className="p-2 image-fluid h-75" variant="top" src={img} />
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>Price: {price}</Card.Text>
